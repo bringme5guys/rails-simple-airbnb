@@ -2,26 +2,28 @@
 <div class="container">
   <h1 class="text-center my-4">All our Flats</h1>
   <div class="row mb-4">
-    <div class="col-md-2">
-      <%= link_to 'Add Flat', new_flat_path, class: 'btn btn-primary btn-block mb-3' %>
+    <div class="col-md-4">
+      <%= link_to 'Add Flat', new_flat_path, class: 'btn btn-primary btn-block' %>
     </div>
   </div>
   <div class="row">
     <% @flats.each do |flat| %>
-      <div class="col-md-4 mb-4 d-flex align-items-stretch">
-        <div class="card w-100">
-          <%= image_tag flat.picture_url, class: 'card-img-top' %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img src="<%= flat.picture_url %>" class="card-img-top" alt="Flat image">
           <div class="card-body d-flex flex-column">
             <h5 class="card-title"><%= flat.name %></h5>
-            <p class="card-text">
+            <p class="card-text flex-grow-1">
               <%= flat.address %><br>
               <i class="fa-solid fa-users"></i> <%= flat.number_of_guests %> guests<br>
               <i class="fa-solid fa-euro-sign"></i> <%= flat.price_per_night %> per night
             </p>
-            <div class="mt-auto">
+            <div class="mt-auto btn-group" role="group">
               <%= link_to 'More info', flat_path(flat), class: 'btn btn-primary' %>
               <%= link_to 'Edit', edit_flat_path(flat), class: 'btn btn-secondary' %>
-              <%= link_to 'Delete', flat, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+              <%= form_with url: flat_path(flat), method: :delete, local: true do %>
+                <%= submit_tag 'Delete', class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+              <% end %>
             </div>
           </div>
         </div>

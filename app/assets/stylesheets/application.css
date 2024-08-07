@@ -16,3 +16,88 @@
     width: 100%;
   }
 </style>
+
+.card {
+  height: 100%;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-text {
+  flex-grow: 1;
+}
+
+/* Aligner le bouton Add Flat avec les cartes */
+.row.mb-4 {
+  display: flex;
+  align-items: center;
+}
+
+.row.mb-4 .btn {
+  width: 100%;
+}
+
+/* Assurer que les cartes et les boutons sont bien alignés */
+.card-body .btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-body .btn-group .btn {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.card-body .btn-group .btn:last-child {
+  margin-right: 0;
+}
+
+/* Ajuster la largeur du bouton Add Flat */
+.row.mb-4 .btn-block {
+  width: auto;
+  display: inline-block;
+}
+
+/* Assurer que les cartes et les boutons sont bien alignés */
+.card-body .btn-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+.card-body .btn-group .btn {
+  flex: 1;
+  margin-right: 5px;
+}
+
+.card-body .btn-group .btn:last-child {
+  margin-right: 0;
+}
+
+/* Styles pour améliorer la mise en page de la page More Info */
+.card {
+  max-width: 800px;
+  margin: auto;
+}
+
+.card-title {
+  font-size: 2rem;
+}
+
+.card-text {
+  margin-bottom: 1rem;
+}
+
+.card-body .btn {
+  margin-right: 5px;
+}
+
+.card-body .btn:last-child {
+  margin-right: 0;
+}
+
+.d-flex.justify-content-between {
+  margin-top: 1rem;
+}

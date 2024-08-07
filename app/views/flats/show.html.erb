@@ -1,16 +1,20 @@
 <!-- app/views/flats/show.html.erb -->
-<div class="container">
-  <h1><%= @flat.name %></h1>
-  <% if @flat.picture_url.present? %>
-    <%= image_tag @flat.picture_url, class: 'img-fluid' %>
-  <% end %>
-  <p><%= @flat.address %></p>
-  <p><%= @flat.description %></p>
-  <p><strong>Number of guests:</strong> <%= @flat.number_of_guests %></p>
-  <p><strong>Price per night:</strong> <%= @flat.price_per_night %>€</p>
-  <div class="d-flex justify-content-between">
-    <%= link_to 'Back to Flats', flats_path, class: 'btn btn-secondary' %>
-    <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-secondary' %>
-    <%= link_to 'Delete', @flat, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
+<div class="container mt-4">
+  <div class="card">
+    <img src="<%= @flat.picture_url %>" class="card-img-top" alt="Flat image">
+    <div class="card-body">
+      <h2 class="card-title"><%= @flat.name %></h2>
+      <p class="card-text"><%= @flat.address %></p>
+      <p class="card-text"><%= @flat.description %></p>
+      <p><strong>Number of guests:</strong> <%= @flat.number_of_guests %></p>
+      <p><strong>Price per night:</strong> <%= @flat.price_per_night %>€</p>
+      <div class="d-flex justify-content-between">
+        <%= link_to 'Back to Flats', flats_path, class: 'btn btn-secondary' %>
+        <%= link_to 'Edit', edit_flat_path(@flat), class: 'btn btn-secondary' %>
+        <%= form_with url: flat_path(@flat), method: :delete, local: true do %>
+          <%= submit_tag 'Delete', class: 'btn btn-danger', data: { confirm: 'Are you sure?' } %>
+        <% end %>
+      </div>
+    </div>
   </div>
 </div>
